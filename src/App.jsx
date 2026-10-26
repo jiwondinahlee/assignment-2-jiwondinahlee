@@ -58,11 +58,11 @@ function App() {
         <ul>
           <li>
             <img src={inboxIcon} alt=""/>
-            Inbox <span className="count">5</span>
+            Inbox <span className="count">{tasks.length}</span>
           </li>
           <li>
             <img src={calendarIcon} alt=""/>
-            Today <span className="count">5</span>
+            Today <span className="count">{tasks.length}</span>
           </li>
           <li>
             <img src={upcomingIcon} alt=""/>
@@ -80,7 +80,7 @@ function App() {
           <button className={filter === 'completed' ? 'active' : ''} onClick={() => setFilter('completed')}>Completed</button>
         </div>
         <TaskForm onAdd={addTask} />
-        <TaskList tasks={filteredTasks}onToggle={toggleTask} onDelete={deleteTask} />
+        <TaskList tasks={filteredTasks} onToggle={toggleTask} onDelete={deleteTask} />
       </main>
     </div>
   )
