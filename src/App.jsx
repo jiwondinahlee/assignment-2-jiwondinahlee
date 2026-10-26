@@ -1,7 +1,9 @@
 import './App.css'
 import menuIcon from './assets/menu_icon.png'
 import searchIcon from './assets/search_icon.png'
-import checkIcon from './assets/check_icon.png'
+import TaskCounter from './components/TaskCounter'
+import TaskList from './components/TaskList'
+import TaskForm from './components/TaskForm'
 import inboxIcon from './assets/inbox_icon.png'
 import calendarIcon from './assets/calendar_icon.png'
 import upcomingIcon from './assets/upcoming_icon.png'
@@ -10,6 +12,14 @@ import upcomingIcon from './assets/upcoming_icon.png'
 // Step 1 (after the Oct 12 class): hard-coded tasks, the five components, props.
 // Step 2 (after the Oct 19 class): useState, the controlled form, toggle, delete, filtering.
 function App() {
+  const tasks = [
+    { id: 1, text: "Call Mom", completed: false },
+    { id: 2, text: "Buy the new issue of Scientific American", completed: false },
+    { id: 3, text: "Return the textbook to Josie", completed: false },
+    { id: 4, text: "Buy the new album by Rake", completed: false },
+    { id: 5, text: "Buy a gift card for Dad", completed: false },
+  ]
+
   return (
     <div className="app">
       <header>
@@ -18,10 +28,8 @@ function App() {
           <img src={searchIcon} alt="Search"/>
           <input type="text" placeholder="Quick Find"/>
         </form>
-        <span className="task-counter">
-          <img src={checkIcon} alt=""/>
-          30/5
-        </span>
+        <TaskCounter total={tasks.length} completed={tasks.filter((task) => task.completed).length} />
+
       </header>
       <nav>
         <ul>
@@ -41,28 +49,8 @@ function App() {
       </nav>
       <main>
         <h1>Inbox</h1>
-        <ul>
-          <li>
-            <input type="checkbox"/>
-            Call Mom
-          </li>
-          <li>
-            <input type="checkbox"/>
-            Buy the new issue of Scientific American
-          </li>
-          <li>
-            <input type="checkbox"/>
-            Return the textbook to Josie
-          </li>
-          <li>
-            <input type="checkbox"/>
-            Buy the new album by Rake
-          </li>
-          <li>
-            <input type="checkbox"/>
-            Buy a gift card for Dad
-          </li>
-        </ul>
+        <TaskForm />
+        <TaskList tasks={tasks} />
       </main>
     </div>
   )
