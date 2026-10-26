@@ -1,1 +1,121 @@
-/* Paste your Assignment 1 styles.css here. Keep the icons in src/assets/ so url(assets/...) paths keep working. */
+/* This is your CSS files */
+
+/* <------ RESET & BASE STYLES ------> */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* <------ HEADER STYLES ------> */
+header {
+    flex: 1 0 100%;
+    background-color: #dc4c3e;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 20px;
+}
+
+.task-counter {
+    margin-left: auto;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    padding: 6px 12px;
+}
+
+header form input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+header form input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* <------ LEFT NAVIGATION STYLES ------> */
+nav {
+    width: 300px;
+    flex-shrink: 0;
+    background-color: #fefbf2;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+nav img {
+    width: 20px;
+    height: 20px;
+}
+
+.count {
+    color: #7e7d79;
+    font-size: 12px;
+    margin-left: auto;
+}
+
+/* <------ MAIN CONTENT STYLES ------> */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+main h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+main ul {
+    list-style: none;
+}
+
+main li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+main input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* <------ RESPONSIVE STYLES ------> */
+@media (max-width: 480px) {
+    nav {
+        display: none;
+    }
+}
