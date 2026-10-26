@@ -1,6 +1,6 @@
 function TaskItem({ task, onToggle, onDelete }) {
   return (
-    <li>
+    <li className={task.completed ? 'completed' : ''}>
       <input
         type="checkbox"
         checked={task.completed}

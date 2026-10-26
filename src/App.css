@@ -119,3 +119,98 @@ main input[type="checkbox"] {
         display: none;
     }
 }
+
+/* <------ ASSIGNMENT 2 STYLES ------> */
+/* Checkbox: show it filled when checked */
+main input[type="checkbox"]:checked {
+    background-color: #dc4c3e;
+    border-color: #dc4c3e;
+}
+
+main input[type="checkbox"]:hover {
+    border-color: #dc4c3e;
+}
+
+/* Completed tasks look different */
+main li.completed {
+    color: #999999;
+    text-decoration: line-through;
+}
+
+/* Add task form */
+.task-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-form input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.task-form button {
+    padding: 8px 16px;
+    background-color: #dc4c3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.task-form button:hover {
+    background-color: #b83a2e;
+}
+
+.task-form button:active {
+    transform: scale(0.97);
+}
+
+/* Filter buttons: All | Active | Completed */
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: #999999;
+}
+
+.filters button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: #555555;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    color: #dc4c3e;
+}
+
+.filters button.active {
+    color: #dc4c3e;
+    font-weight: bold;
+}
+
+/* Delete button */
+.delete-button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #999999;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    color: #dc4c3e;
+}
+
+/* Empty state */
+.empty-state {
+    color: #999999;
+    padding: 15px 0;
+}
