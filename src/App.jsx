@@ -20,6 +20,7 @@ function App() {
     { id: 4, text: "Buy the new album by Rake", completed: false },
     { id: 5, text: "Buy a gift card for Dad", completed: false },
   ])
+  const [filter, setFilter] = useState('all')
 
   function toggleTask(id) {
     setTasks(tasks.map((task) =>
@@ -35,6 +36,12 @@ function App() {
     const newTask = { id: Date.now(), text: text, completed: false }
     setTasks([...tasks, newTask])
   }
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'active') return !task.completed
+    if (filter === 'completed') return task.completed
+    return true
+  })
 
   return (
     <div className="app">
@@ -65,8 +72,15 @@ function App() {
       </nav>
       <main>
         <h1>Inbox</h1>
+        <div className="filters">
+          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>All</button>
+          <span>|</span>
+          <button className={filter === 'active' ? 'active' : ''} onClick={() => setFilter('active')}>Active</button>
+          <span>|</span>
+          <button className={filter === 'completed' ? 'active' : ''} onClick={() => setFilter('completed')}>Completed</button>
+        </div>
         <TaskForm onAdd={addTask} />
-        <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
+        <TaskList tasks={filteredTasks}onToggle={toggleTask} onDelete={deleteTask} />
       </main>
     </div>
   )
