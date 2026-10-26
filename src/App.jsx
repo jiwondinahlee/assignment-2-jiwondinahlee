@@ -31,6 +31,11 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
+  function addTask(text) {
+    const newTask = { id: Date.now(), text: text, completed: false }
+    setTasks([...tasks, newTask])
+  }
+
   return (
     <div className="app">
       <header>
@@ -60,7 +65,7 @@ function App() {
       </nav>
       <main>
         <h1>Inbox</h1>
-        <TaskForm />
+        <TaskForm onAdd={addTask} />
         <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
       </main>
     </div>
